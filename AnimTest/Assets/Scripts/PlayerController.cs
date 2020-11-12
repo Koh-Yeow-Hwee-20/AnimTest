@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
        if (Input.GetKey(KeyCode.W))
         {
             Debug.Log("Moving");
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             playerAnim.SetBool("IsStrafe", true);
         }
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour
        //Move Left
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * -speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.rotation = Quaternion.Euler(0, -90, 0);
             playerAnim.SetBool("IsStrafe", true);
         }
 
@@ -45,7 +47,8 @@ public class PlayerController : MonoBehaviour
         //Move Right
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.rotation = Quaternion.Euler(0, 90, 0);
             playerAnim.SetBool("IsStrafe", true);
         }
 
@@ -57,7 +60,8 @@ public class PlayerController : MonoBehaviour
         //Move Backwards
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * -speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             playerAnim.SetBool("IsStrafe", true);
         }
 
